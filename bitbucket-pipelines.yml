@@ -1,0 +1,13 @@
+pipelines:
+  default:
+    - step:
+        name: Install Dependencies
+        image: node:14
+        script:
+          - npm install
+
+    - step:
+        name: Run Postman Tests
+        image: postman/newman:alpine
+        script:
+          - newman run path/to/your/postman/collection.json --environment path/to/your/postman/environment.json
